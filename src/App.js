@@ -24,7 +24,7 @@ function App() {
           <NavBar />
         </header>
         <Routes>
-          <Route path="/" element={ReviewList} />
+          <Route path="/" element={<ReviewList />} />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>
