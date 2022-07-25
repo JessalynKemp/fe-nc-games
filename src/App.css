@@ -5,3 +5,25 @@
     --seashell: #fff4ecff;
     --champagne-pink: #e7cfbcff;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito";
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    color: var(--french-lilac)
+}
+
+h1 {
+    font-size: 26px;
+}
+
+#homeIcon {
+    height: 28px;
+    color: var(--old-rose);
+}
