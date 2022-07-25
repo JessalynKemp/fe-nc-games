@@ -21,7 +21,7 @@ useEffect(() => {
 return (
     <div className="navBar">
         {categories.map((category) => {
-            return <Link class="navLink" to={`/${category.slug}`}><p>{category.name}</p></Link>
+            return <Link key={category.slug} className="navLink" to={`/${category.slug}`}><p>{category.name}</p></Link>
         })}
     </div>
 )
