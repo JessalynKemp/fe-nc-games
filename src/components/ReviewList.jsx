@@ -19,7 +19,7 @@ return(
     <div className="reviewList">
     <h2>Reviews</h2>
     {reviews.map((review) => {
-        <ReviewCard key={review.review_id}/>
+        return <ReviewCard key={review.review_id} review={review}/>
     })}
     </div>
 )
