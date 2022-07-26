@@ -1,6 +1,6 @@
-import { useEffect, useState, useContext } from "react"
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom";
 
-import { CategoryContext } from "../contexts/CategoryContext";
 
 import {Link} from "react-router-dom";
 import CategoryMenu from "./CategoryMenu";
@@ -12,7 +12,6 @@ export default function NavBar () {
 const axios = require("axios");
 const [categories, setCategories] = useState([]);
 const [isOpen, setIsOpen] = useState(false);
-const {setSelectedCategory} = useContext(CategoryContext)
 
 useEffect(() => {
     axios.get("https://nc-games-jk.herokuapp.com/api/categories").then(({data}) => {
@@ -21,16 +20,11 @@ useEffect(() => {
     })
 }, [])
 
-function changeSelectedCategory(e){
-    setIsOpen((currentOpen) => !currentOpen);
-    setSelectedCategory(e.target.outerText.split(" ").join("-").toLowerCase());
-}
-
 return (
     <div className="navBar">
         <CategoryMenu isOpen={isOpen} setIsOpen={setIsOpen} >
         {categories.map((category) => {
-            return <Link key={category.slug} className="navLink" to={`/${category.slug}`} onClick={(e)=> changeSelectedCategory(e)}><p>{category.name}</p></Link>
+            return <Link key={category.slug} className="navLink" to={`/${category.slug}`} onClick={()=>{setIsOpen((currentOpen) => !currentOpen)}}><p>{category.name}</p></Link>
         })}
         </CategoryMenu>
     </div>
