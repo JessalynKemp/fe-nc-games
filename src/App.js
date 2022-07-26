@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { UserContext } from "./contexts/User";
 
 import Header from "./components/Header";
@@ -25,6 +25,7 @@ function App() {
         </header>
         <Routes>
           <Route path="/" element={<ReviewList />} />
+          <Route path="/:category" element={<ReviewList />} />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>
