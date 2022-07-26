@@ -50,10 +50,17 @@ h2 {
 
 .reviewCard {
     height: 140px; 
-    display: flex;
     margin: 0.7rem;
-    border: 1px solid black;
+    display: flex;
+    border: 4px solid rgb(231, 207, 188, 0.4);
     border-radius: 12px;
+    text-decoration: none;
+    color: black;
+}
+
+.reviewCard:hover{
+    border-color: var(--mellow-apricot);
+   
 }
 
 .voteCount {
