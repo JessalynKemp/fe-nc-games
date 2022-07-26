@@ -1,8 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { UserContext } from "./contexts/User";
-import { CategoryContext } from "./contexts/SelectedCategory";
+import { CategoryContext } from "./contexts/CategoryContext";
 
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
@@ -15,7 +15,7 @@ function App() {
     name: "Guest Account",
     avatar_url: "https://cdn-icons-png.flaticon.com/512/1077/1077114.png?w=360",
   });
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   return (
     <BrowserRouter>
