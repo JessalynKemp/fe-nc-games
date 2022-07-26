@@ -9,6 +9,9 @@ const axios = require("axios");
 const [reviews, setReviews] = useState([]);
 const {selectedCategory} = useContext(CategoryContext)
 
+let categoryTitleName = selectedCategory.split("-").join(" ")
+categoryTitleName = categoryTitleName[0].toUpperCase() + categoryTitleName.substring(1);
+
 useEffect(() => {
     axios.get("https://nc-games-jk.herokuapp.com/api/reviews").then(({data}) => {
         const newReviews = data.reviews.filter((review) => {
@@ -22,7 +25,7 @@ useEffect(() => {
 
 return(
     <div>
-    <h2>Reviews</h2> 
+    <h2>{categoryTitleName} Reviews</h2> 
     <div className="reviewList">
         {reviews.map((review) => {
             return <ReviewCard key={review.review_id} review={review}/>
