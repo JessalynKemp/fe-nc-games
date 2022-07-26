@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 import {Link} from "react-router-dom";
 import CategoryMenu from "./CategoryMenu";
 
+import {addCategoryName} from "../utilities/utilities"
+
 export default function NavBar () {
 
 const axios = require("axios");
@@ -10,13 +12,9 @@ const [categories, setCategories] = useState([]);
 const [isOpen, setIsOpen] = useState(false);
 
 useEffect(() => {
-    axios.get("https://nc-games-jk.herokuapp.com/api/categories").then((response) => {
-        return response.data.categories;
-    }).then((categoryData) => {
-        categoryData.forEach((category) => {
-            category.name = category.slug.split("-").join(" ");
-        })
-        setCategories(categoryData)
+    axios.get("https://nc-games-jk.herokuapp.com/api/categories").then(({data}) => {
+        addCategoryName(data.categories);
+        setCategories(data.categories);
     })
 }, [])
 
