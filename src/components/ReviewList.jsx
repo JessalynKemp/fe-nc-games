@@ -16,11 +16,13 @@ useEffect(() => {
     
 
 return(
-    <div className="reviewList">
+    <div>
     <h2>Reviews</h2> 
-    {reviews.map((review) => {
-        return <ReviewCard key={review.review_id} review={review}/>
-    })}
+    <div className="reviewList">
+        {reviews.map((review) => {
+            return <ReviewCard key={review.review_id} review={review}/>
+        })}
+    </div>
     </div>
 )
 }

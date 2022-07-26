@@ -23,6 +23,10 @@ h1 {
     font-size: 36px;
 }
 
+h2 {
+    color: var(--french-lilac) 
+}
+
 #homeIcon {
     height: 28px;
     color: var(--old-rose);
@@ -45,11 +49,58 @@ h1 {
 }
 
 .reviewCard {
+    height: 140px; 
     display: flex;
-    margin: 1rem;
+    margin: 0.7rem;
     border: 1px solid black;
+    border-radius: 12px;
 }
 
 .voteCount {
-    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(231, 207, 188, 0.4);
+    color: var(--old-rose);
+    width: 20%;
+}
+
+.voteNumber {
+    font-size: 24px;
+}
+
+.reviewCardText {
+    padding: 0.4rem;
+    width: 80%;
+}
+
+.cardTitle {
+    font-size: 16px;
+}
+
+.cardOwner {
+    color: var(--old-rose);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.cardDesigner {
+    font-size: 14px;
+}
+
+.cardCategory {
+    font-size: 14px;
+}
+
+@media (min-width: 600px) {
+
+    .reviewList {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .reviewCard {
+        width: 30%;
+    }
 }
