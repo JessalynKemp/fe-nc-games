@@ -15,7 +15,9 @@ function App() {
     name: "Guest Account",
     avatar_url: "https://cdn-icons-png.flaticon.com/512/1077/1077114.png?w=360",
   });
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState(
+    window.location.pathname.substring(1)
+  );
 
   return (
     <BrowserRouter>

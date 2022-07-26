@@ -11,20 +11,21 @@ const {selectedCategory} = useContext(CategoryContext)
 
 useEffect(() => {
     axios.get("https://nc-games-jk.herokuapp.com/api/reviews").then(({data}) => {
-        setReviews(data.reviews);
+        const newReviews = data.reviews.filter((review) => {
+            if(review.category === selectedCategory || selectedCategory === "all") {
+                return review;
+            }
+        });
+        setReviews(newReviews);
     })
-}, [])
+}, [selectedCategory])
 
 return(
     <div>
     <h2>Reviews</h2> 
     <div className="reviewList">
         {reviews.map((review) => {
-            if(review.category === selectedCategory || selectedCategory === "all") {
-                return <ReviewCard key={review.review_id} review={review}/>
-            } else {
-                return <></>
-            }
+            return <ReviewCard key={review.review_id} review={review}/>
         })}
     </div>
     </div>
