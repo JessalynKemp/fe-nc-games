@@ -29,19 +29,19 @@ h1 {
 }
 
 .navBar {
-    display: flex;
-    flex-wrap: wrap;
     background-color: var(--old-rose);
-    justify-content: space-between;
+}
+
+.categoryMenu {
+    display: flex;
+    justify-content: space-around;
+    color: var(--seashell);
 }
 
 .navLink {
     text-decoration: none;
     font-size: 12px;
     color: var(--seashell);
-    text-overflow: inherit;
-    padding: 0.1rem;
-    width: 25%;
 }
 
 .reviewCard {
