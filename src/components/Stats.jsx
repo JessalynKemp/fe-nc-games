@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { formatDateAndTime } from "../utilities/utilities";
 
-export default function Stats ({reviewData, votes, setVotes}) {
+export default function Stats ({reviewData, votes, setVotes, setIsCommentsOpen}) {
 
 const {formattedDate, formattedTime} = formatDateAndTime(reviewData.created_at);
 const [error, setError] = useState("")
@@ -34,7 +34,7 @@ return <div className="statsBox">
     </div>
     <div className="reviewCommentCount">
         <p>Comments: {reviewData.comment_count}</p>
-        <button>View</button>
+        <button onClick={()=>{setIsCommentsOpen((currentOpen) => !currentOpen)}}>View</button>
     </div>
 </div>
 }
