@@ -15,7 +15,7 @@ export default function SingleReview () {
     return(
         <div className="singleReview">
         <Summary reviewData={reviewData}/>
-        <p>{reviewData.review_body}</p>
+        <p className="reviewBody">{reviewData.review_body}</p>
         </div>
 
     )

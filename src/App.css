@@ -89,7 +89,7 @@ h2 {
 .cardOwner {
     color: var(--old-rose);
     font-weight: 700;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .cardDesigner {
@@ -101,25 +101,65 @@ h2 {
 }
 
 .reviewImage{
-    height: 150px;
+    height: 180px;
+    width: 56%;
+    border: 2px solid var(--mellow-apricot); 
 }
 
-.singleReviewTitle, .singleReviewStatsAndImage {
+.exitReviewButton {
+    margin-right: 1rem;
+}
+
+.singleReviewTitle  {
     display: flex;
-}
-
-.statsBox {
     padding: 0.5rem;
 }
 
-.reviewVoteCount {
+.singleReviewStatsAndImage {
     display: flex;
+    padding: 0.8rem;
+    justify-content: space-between;
 }
 
-.reviewCommentCount {
-    display: flex;
+.statsBox {
+    width: 40%;
 }
 
+.reviewCardOwner {
+    color: var(--old-rose);
+    font-weight: 700;
+    font-size: 18px;
+    padding-left: 0.4rem;
+}
+
+.reviewDateTime {
+    font-size: 12px;
+    padding-left: 0.4rem;
+}
+
+.reviewVoteCount, .reviewCommentCount {
+    display: flex;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    background-color: rgb(231, 207, 188, 0.4);
+    justify-content: space-between;
+    padding: 0.3rem 0.8rem 0.3rem 0.8rem;
+    color: var(--old-rose);
+}
+
+.reviewCategoryDesigner {
+    background-color: var(--mellow-apricot);
+    padding: 0.3rem;
+    font-size: 14px;
+    color: var(--seashell);
+}
+
+.reviewBody {
+    margin: 0rem 0.8rem 0rem 0.8rem;
+    padding: 0.2rem;
+    font-size: 14px;
+    border: 2px solid var(--mellow-apricot);
+}
 
 @media (min-width: 600px) {
 

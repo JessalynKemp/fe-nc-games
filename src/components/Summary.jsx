@@ -1,10 +1,13 @@
 import Stats from "./Stats"
+import { useNavigate } from "react-router-dom"
 
 export default function Summary ({reviewData}) {
+    const navigate = useNavigate();
+
     return (
         <div>
         <div className="singleReviewTitle">
-            <button>Back</button>
+            <button type="button" className="exitReviewButton" onClick={()=> {navigate(-1)}}>Back</button>
             <h2>{reviewData.title}</h2>
         </div>
         <div className="singleReviewStatsAndImage">

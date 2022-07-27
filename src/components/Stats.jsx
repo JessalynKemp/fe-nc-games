@@ -5,17 +5,22 @@ let formattedDate = date.toLocaleDateString("en-GB");
 let formattedTime = date.toLocaleTimeString(["en-GB"], {hour:"2-digit", minute: "2-digit"})
 
 return <div className="statsBox">
-    <p>{reviewData.owner} - {formattedTime} {formattedDate}</p>
+    <p className="reviewCardOwner">{reviewData.owner}</p>
+    <p className="reviewDateTime">{formattedTime} {formattedDate}</p>
     <div className="reviewVoteCount">
         <p>Votes: {reviewData.votes}</p>
-        <button>Up</button>
-        <button>Down</button>
+        <div className="reviewVotingButtons">
+            <button>Up</button>
+            <button>Down</button>
+        </div>
     </div>
-    <p>Category: {reviewData.category}</p>
-    <p>Designer: {reviewData.designer}</p>
+    <div className="reviewCategoryDesigner">
+        <p>Category: {reviewData.category}</p>
+        <p>Designer: {reviewData.designer}</p>
+    </div>
     <div className="reviewCommentCount">
-        <p>Comments: {reviewData.comments}</p>
-        <button>View comments</button>
+        <p>Comments: {reviewData.comment_count}</p>
+        <button>View</button>
     </div>
 </div>
 }
