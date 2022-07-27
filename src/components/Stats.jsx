@@ -15,8 +15,8 @@ return <div className="statsBox">
         </div>
     </div>
     <div className="reviewCategoryDesigner">
-        <p>Category: {reviewData.category}</p>
-        <p>Designer: {reviewData.designer}</p>
+        <p>C: {reviewData.category}</p>
+        <p>D: {reviewData.designer}</p>
     </div>
     <div className="reviewCommentCount">
         <p>Comments: {reviewData.comment_count}</p>

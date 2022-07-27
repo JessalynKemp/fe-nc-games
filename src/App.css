@@ -101,8 +101,8 @@ h2 {
 }
 
 .reviewImage{
-    height: 180px;
-    width: 56%;
+    height: 150px;
+    width: 54%;
     border: 2px solid var(--mellow-apricot); 
 }
 
@@ -117,12 +117,12 @@ h2 {
 
 .singleReviewStatsAndImage {
     display: flex;
-    padding: 0.8rem;
+    padding: 0.6rem;
     justify-content: space-between;
 }
 
 .statsBox {
-    width: 40%;
+    width: 44%;
 }
 
 .reviewCardOwner {
@@ -133,7 +133,7 @@ h2 {
 }
 
 .reviewDateTime {
-    font-size: 12px;
+    font-size: 11px;
     padding-left: 0.4rem;
 }
 
@@ -143,19 +143,20 @@ h2 {
     margin-bottom: 0.5rem;
     background-color: rgb(231, 207, 188, 0.4);
     justify-content: space-between;
-    padding: 0.3rem 0.8rem 0.3rem 0.8rem;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
     color: var(--old-rose);
+    font-size: 14px;
 }
 
 .reviewCategoryDesigner {
     background-color: var(--mellow-apricot);
-    padding: 0.3rem;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
     font-size: 14px;
     color: var(--seashell);
 }
 
 .reviewBody {
-    margin: 0rem 0.8rem 0rem 0.8rem;
+    margin: 0rem 0.6rem 0rem 0.6rem;
     padding: 0.2rem;
     font-size: 14px;
     border: 2px solid var(--mellow-apricot);
@@ -171,4 +172,30 @@ h2 {
     .reviewCard {
         width: 30%;
     }
+
+    .singleReviewStatsAndImage{
+        flex-direction: column;
+        width: 30%;
+    }
+
+    .reviewImage{
+        height: 220px;
+        width: 100%;
+        border: 2px solid var(--mellow-apricot); 
+    }
+
+    .statsBox {
+        width: 100%;
+    }
+
+    .singleReview{
+        display: flex;
+    }
+
+    .reviewBody {
+        margin-top: 3.8rem;
+        width: 70%;
+        height: 100%;
+    }
+
 }
