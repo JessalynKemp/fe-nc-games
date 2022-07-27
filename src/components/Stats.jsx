@@ -1,8 +1,8 @@
+import { formatDateAndTime } from "../utilities/utilities";
+
 export default function Stats ({reviewData}) {
 
-const date = new Date(reviewData.created_at)
-let formattedDate = date.toLocaleDateString("en-GB");
-let formattedTime = date.toLocaleTimeString(["en-GB"], {hour:"2-digit", minute: "2-digit"})
+const {formattedDate, formattedTime} = formatDateAndTime(reviewData.created_at);
 
 return <div className="statsBox">
     <p className="reviewCardOwner">{reviewData.owner}</p>
