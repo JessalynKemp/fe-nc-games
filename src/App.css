@@ -16,11 +16,11 @@
 .header {
     display: flex;
     justify-content: space-between;
-    color: var(--french-lilac)
 }
 
 h1 {
     font-size: 36px;
+    color: var(--french-lilac)
 }
 
 h2 {
@@ -29,6 +29,11 @@ h2 {
 
 #homeIcon {
     height: 28px;
+    color: var(--old-rose);
+}
+
+.userLoggedIn {
+    font-weight: 800;
     color: var(--old-rose);
 }
 
@@ -254,7 +259,7 @@ h2 {
     }
 
     .reviewBody {
-        width: 70%;
+        width: 48%;
         height: 100%;
     }
 
@@ -267,6 +272,7 @@ h2 {
 
     .commentSection {
         margin: 0;
+        width: 48%;
     }
 
 }
