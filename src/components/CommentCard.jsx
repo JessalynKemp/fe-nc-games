@@ -6,17 +6,19 @@ export default function CommentCard ({comment}) {
 
     return (
         <div className="commentCard">
-           <div className="voteCount">
-                <p className="voteNumber">{comment.votes}</p>
+           <div className="commentVoteCount">
+                <p className="commentVoteNumber">{comment.votes}</p>
                 <p>votes</p>
-                <button>Up</button>
-                <button>Down</button>
+                <div className="commentVoteButtons">
+                    <button>Up</button>
+                    <button>Down</button>
+                </div>
             </div>
             <div className="commentCardText">
-                <p>{comment.author} - {formattedTime} {formattedDate}</p>
+                <p>{comment.author} - <span className="reviewDateTime">{formattedTime} {formattedDate}</span> </p>
                 <p>{comment.body}</p>
             </div> 
-            <button>Delete</button>
+            <button className="commentDeleteButton">Delete</button>
         </div>
     )
 }

@@ -27,8 +27,10 @@ export default function SingleReview () {
         </div>
         <div className="singleReview">
         <Summary votes={votes} setVotes={setVotes} setIsCommentsOpen={setIsCommentsOpen} reviewData={reviewData}/>
-        <p className="reviewBody">{reviewData.review_body}</p>
-        {isCommentsOpen ? <CommentSection reviewData={reviewData} /> : <></>}
+            <div className="reviewBodyAndComments">
+                <p className="reviewBody">{reviewData.review_body}</p>
+                {isCommentsOpen ? <CommentSection reviewData={reviewData} /> : <></>}
+            </div>
         </div>
         </>
 

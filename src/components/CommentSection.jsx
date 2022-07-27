@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import CommentCard from "./CommentCard";
 
@@ -7,17 +7,19 @@ export default function CommentSection ({reviewData}) {
 
     const [comments, setComments] = useState([]);
 
-    axios.get(`https://nc-games-jk.herokuapp.com/api/reviews/${reviewData.review_id}/comments`).then(({data}) => {
+    useEffect(() => {axios.get(`https://nc-games-jk.herokuapp.com/api/reviews/${reviewData.review_id}/comments`).then(({data}) => {
         setComments(data.comments);
-    });;
+    })}, [reviewData.review_id]);
 
     return (
         <div className="commentSection">
-            <h4>Comments</h4>
-            <p>{reviewData.comment_count}</p> 
+            <div className="commentTitleAndCount">
+                <h4>Comments</h4>
+                <p>{reviewData.comment_count}</p> 
+            </div>
             <div className="commentList">
             {comments.map((comment) => {
-                return <CommentCard comment={comment}/>
+                return <CommentCard key={comment.comment_id} comment={comment}/>
             })}
             </div>
 
