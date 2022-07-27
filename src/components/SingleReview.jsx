@@ -4,11 +4,13 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
 
 import Summary from "./Summary";
+import CommentSection from "./CommentSection";
 
 export default function SingleReview () {
     const {review_id} = useParams();
     const [reviewData, setReviewData] = useState({});
     const [votes, setVotes] = useState(0);
+    const [isCommentsOpen, setIsCommentsOpen] = useState(false);
 
     const navigate = useNavigate();
     
@@ -24,8 +26,9 @@ export default function SingleReview () {
         <h2>{reviewData.title}</h2>
         </div>
         <div className="singleReview">
-        <Summary votes={votes} setVotes={setVotes} reviewData={reviewData}/>
+        <Summary votes={votes} setVotes={setVotes} setIsCommentsOpen={setIsCommentsOpen} reviewData={reviewData}/>
         <p className="reviewBody">{reviewData.review_body}</p>
+        {isCommentsOpen ? <CommentSection reviewData={reviewData} /> : <></>}
         </div>
         </>
 

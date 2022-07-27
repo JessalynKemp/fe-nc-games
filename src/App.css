@@ -170,7 +170,6 @@ h2 {
     font-size: 14px;
     border: 2px solid var(--mellow-apricot);
 }
-
 @media (min-width: 600px) {
 
     .reviewList {
