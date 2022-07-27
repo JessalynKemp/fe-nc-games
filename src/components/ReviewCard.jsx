@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom"
+
 export default function ReviewCard ({review}) {
     return (
-        <div className="reviewCard">
+        <Link className="reviewCard" to={`/${review.category}/${review.review_id}`}>
             <div className="voteCount">
                 <p className="voteNumber">{review.votes}</p>
                 <p>votes</p>
@@ -12,6 +14,6 @@ export default function ReviewCard ({review}) {
                 <p className="cardDesigner">Designer: {review.designer}</p>
                 <p className="cardCategory">Category: {review.category}</p>
             </div>
-        </div>
+        </Link>
     )
 }

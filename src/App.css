@@ -50,10 +50,17 @@ h2 {
 
 .reviewCard {
     height: 140px; 
-    display: flex;
     margin: 0.7rem;
-    border: 1px solid black;
+    display: flex;
+    border: 4px solid rgb(231, 207, 188, 0.4);
     border-radius: 12px;
+    text-decoration: none;
+    color: black;
+}
+
+.reviewCard:hover{
+    border-color: var(--mellow-apricot);
+   
 }
 
 .voteCount {
@@ -82,7 +89,7 @@ h2 {
 .cardOwner {
     color: var(--old-rose);
     font-weight: 700;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .cardDesigner {
@@ -91,6 +98,68 @@ h2 {
 
 .cardCategory {
     font-size: 14px;
+}
+
+.reviewImage{
+    height: 150px;
+    width: 54%;
+    border: 2px solid var(--mellow-apricot); 
+}
+
+.exitReviewButton {
+    margin-right: 1rem;
+}
+
+.singleReviewTitle  {
+    display: flex;
+    padding: 0.5rem;
+}
+
+.singleReviewStatsAndImage {
+    display: flex;
+    padding: 0.6rem;
+    justify-content: space-between;
+}
+
+.statsBox {
+    width: 44%;
+}
+
+.reviewCardOwner {
+    color: var(--old-rose);
+    font-weight: 700;
+    font-size: 18px;
+    padding-left: 0.4rem;
+}
+
+.reviewDateTime {
+    font-size: 11px;
+    padding-left: 0.4rem;
+}
+
+.reviewVoteCount, .reviewCommentCount {
+    display: flex;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    background-color: rgb(231, 207, 188, 0.4);
+    justify-content: space-between;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    color: var(--old-rose);
+    font-size: 14px;
+}
+
+.reviewCategoryDesigner {
+    background-color: var(--mellow-apricot);
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    font-size: 14px;
+    color: var(--seashell);
+}
+
+.reviewBody {
+    margin: 0rem 0.6rem 0rem 0.6rem;
+    padding: 0.2rem;
+    font-size: 14px;
+    border: 2px solid var(--mellow-apricot);
 }
 
 @media (min-width: 600px) {
@@ -103,4 +172,30 @@ h2 {
     .reviewCard {
         width: 30%;
     }
+
+    .singleReviewStatsAndImage{
+        flex-direction: column;
+        width: 30%;
+    }
+
+    .reviewImage{
+        height: 220px;
+        width: 100%;
+        border: 2px solid var(--mellow-apricot); 
+    }
+
+    .statsBox {
+        width: 100%;
+    }
+
+    .singleReview{
+        display: flex;
+    }
+
+    .reviewBody {
+        margin-top: 3.8rem;
+        width: 70%;
+        height: 100%;
+    }
+
 }
