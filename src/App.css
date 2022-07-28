@@ -1,5 +1,6 @@
 :root {
     --french-lilac: #966b9dff;
+    --dark-plum: #3D1A39;
     --old-rose: #c98686ff;
     --mellow-apricot: #f2b880ff;
     --seashell: #fff4ecff;
@@ -15,21 +16,34 @@
 
 .header {
     display: flex;
+    margin: 0.3rem 0.3rem 0.5rem 0.3rem;
     justify-content: space-between;
+    color: var(--dark-plum);
 }
 
 h1 {
     font-size: 36px;
-    color: var(--french-lilac)
+    color: var(--dark-plum);
 }
 
 h2 {
-    color: var(--french-lilac) 
+    color: var(--dark-plum);
 }
 
 #homeIcon {
     height: 28px;
     color: var(--old-rose);
+    margin-right: 0.7rem;
+    margin-top: 0.5rem;
+}
+
+#homeIcon:hover {
+    color: var(--mellow-apricot);
+}
+
+.loggedInNotif{
+    margin-left: 0.1rem;
+    font-size: 14px;
 }
 
 .userLoggedIn {
