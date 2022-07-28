@@ -59,7 +59,7 @@ export default function CommentSection ({reviewData, commentCount, setCommentCou
             </div>
             <div className="commentList">
             {comments.map((comment) => {
-                return <CommentCard key={comment.comment_id} comment={comment}/>
+                return <CommentCard setComments={setComments} setCommentCount={setCommentCount} key={comment.comment_id} comment={comment} />
             })}
             </div>
 
