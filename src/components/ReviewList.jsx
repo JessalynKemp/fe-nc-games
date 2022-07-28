@@ -7,26 +7,37 @@ export default function ReviewList () {
 const axios = require("axios");
 const [reviews, setReviews] = useState([]);
 const [sortBy, setSortBy] = useState("");
+const [order, setOrder] = useState("desc")
 const [isAscDisabled, setIsAscDisabled] = useState(false);
 
 const {category} = useParams();
 
 useEffect(() => {
-    axios.get("https://nc-games-jk.herokuapp.com/api/reviews", {params: {category}}).then(({data}) => {
+    axios.get("https://nc-games-jk.herokuapp.com/api/reviews", {params: {category, order}}).then(({data}) => {
         setReviews(data.reviews);
     })
-}, [category])
+}, [category, order])
 
 let categoryName = category || "all"
 categoryName = categoryName.split("-").join(" ") 
 categoryName = categoryName[0].toUpperCase() + categoryName.substring(1);
 
+function handleAscDescChange(e) {
+    setOrder(e.target.outerText.toLowerCase());
+    setIsAscDisabled((currAscDesc) => !currAscDesc);
+}
+
+function handleSortByChange(e) {
+
+}
+
+
 return(
     <div>
         <div className="reviewTitleAndFilters">
         <h2>{categoryName} Reviews</h2> 
-        <button disabled={isAscDisabled}>Asc</button>
-        <button disabled={!isAscDisabled}>Desc</button>
+        <button onClick={handleAscDescChange} disabled={isAscDisabled}>Asc</button>
+        <button onClick={handleAscDescChange} disabled={!isAscDisabled}>Desc</button>
         <label>Filter by:</label>
         <select>
             <option defaultValue="created_by">Date</option>
