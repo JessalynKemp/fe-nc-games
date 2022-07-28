@@ -7,27 +7,36 @@ import Summary from "./Summary";
 import CommentSection from "./CommentSection";
 
 export default function SingleReview () {
-    const {review_id} = useParams();
+    const {review_id,category} = useParams();
     const [reviewData, setReviewData] = useState({});
     const [votes, setVotes] = useState(0);
     const [isCommentsOpen, setIsCommentsOpen] = useState(false);
     const [commentCount, setCommentCount] = useState(0);
     const [reviewDoesNotExist, setReviewDoesNotExist] = useState("")
+    const [categoryDoesNotExist, setCategoryDoesNotExist] = useState("");
 
     const navigate = useNavigate();
-    
+
     useEffect(() => {axios.get(`https://nc-games-jk.herokuapp.com/api/reviews/${review_id}`).then(({data})=>{
-        setReviewDoesNotExist("")
-        setReviewData(data.review);
-        setVotes(data.review.votes);
-        setCommentCount(data.review.comment_count);
+        if(data.review.category === category) {
+            setCategoryDoesNotExist("");
+            setReviewDoesNotExist("");
+            setReviewData(data.review);
+            setVotes(data.review.votes);
+            setCommentCount(data.review.comment_count);
+        } else {
+            setCategoryDoesNotExist(`This review does not exist under the category of ${category}.`)
+        }
     }).catch((err) => {
         setReviewDoesNotExist(err.response.data.msg);
     })}, [review_id])
 
     if(reviewDoesNotExist) {
         return <p>{reviewDoesNotExist}</p>
-    } else {    
+    } else if(categoryDoesNotExist) {
+        return <p>{categoryDoesNotExist}</p>
+    } 
+    else {    
         return(
         <>
         <div className="singleReviewTitle">
