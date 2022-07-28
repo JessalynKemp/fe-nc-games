@@ -10,12 +10,16 @@ const [sortBy, setSortBy] = useState("created_at");
 const [order, setOrder] = useState("desc")
 const [isAscDisabled, setIsAscDisabled] = useState(false);
 const [searchParams, setSearchParams] = useSearchParams();
+const [categoryDoesNotExist, setCategoryDoesNotExist] = useState("");
 
 const {category} = useParams();
 
 useEffect(() => {
     axios.get("https://nc-games-jk.herokuapp.com/api/reviews", {params: {category, order, sort_by: sortBy}}).then(({data}) => {
+        setCategoryDoesNotExist("");
         setReviews(data.reviews);
+    }).catch((err) => {
+        setCategoryDoesNotExist(err.response.data.msg);
     })
 }, [category, order, sortBy])
 
@@ -34,7 +38,10 @@ function handleSortByChange(e) {
     setSortBy(e.target.value);
     setSearchParams({order, sort_by: e.target.value});
 }
-
+if(categoryDoesNotExist) {
+    return <p>{categoryDoesNotExist}</p>
+} else {
+    
 return(
     <div>
         <h2>{categoryName} Reviews</h2>
@@ -59,4 +66,6 @@ return(
     </div>
     </div>
 )
+}
+
 }
