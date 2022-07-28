@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import ReviewCard from "./ReviewCard";
 
 export default function ReviewList () {
@@ -9,6 +9,7 @@ const [reviews, setReviews] = useState([]);
 const [sortBy, setSortBy] = useState("created_at");
 const [order, setOrder] = useState("desc")
 const [isAscDisabled, setIsAscDisabled] = useState(false);
+const [searchParams, setSearchParams] = useSearchParams();
 
 const {category} = useParams();
 
@@ -25,6 +26,13 @@ categoryName = categoryName[0].toUpperCase() + categoryName.substring(1);
 function handleAscDescChange(e) {
     setOrder(e.target.outerText.toLowerCase());
     setIsAscDisabled((currAscDesc) => !currAscDesc);
+    setSearchParams({order: e.target.outerText.toLowerCase(), sort_by: sortBy});
+
+}
+
+function handleSortByChange(e) {
+    setSortBy(e.target.value);
+    setSearchParams({order, sort_by: e.target.value});
 }
 
 return(
@@ -37,7 +45,7 @@ return(
             </div>
             <div className="sortByOptions">
                 <label>Sort by: </label>
-                <select id="filters" onChange={(e)=> {setSortBy(e.target.value)}}>
+                <select id="filters" onChange={handleSortByChange}>
                     <option defaultValue="created_at" value="created_at">Date written</option>
                     <option value="comment_count">Comment count</option>
                     <option value="votes">Vote count</option>
