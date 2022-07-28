@@ -29,16 +29,20 @@ function handleAscDescChange(e) {
 
 return(
     <div>
-        <div className="reviewTitleAndFilters">
-        <h2>{categoryName} Reviews</h2> 
-        <button onClick={handleAscDescChange} disabled={isAscDisabled}>Asc</button>
-        <button onClick={handleAscDescChange} disabled={!isAscDisabled}>Desc</button>
-        <label>Filter by:</label>
-        <select onChange={(e)=> {setSortBy(e.target.value)}}>
-            <option defaultValue="created_at" value="created_at">Date written</option>
-            <option value="comment_count">Comment count</option>
-            <option value="votes">Vote count</option>
-        </select>
+        <h2>{categoryName} Reviews</h2>
+        <div className="reviewSortOptions">
+            <div className="ascDescButtons">
+                <button onClick={handleAscDescChange} disabled={isAscDisabled}>Asc</button>
+                <button onClick={handleAscDescChange} disabled={!isAscDisabled}>Desc</button>
+            </div>
+            <div className="sortByOptions">
+                <label>Sort by: </label>
+                <select id="filters" onChange={(e)=> {setSortBy(e.target.value)}}>
+                    <option defaultValue="created_at" value="created_at">Date written</option>
+                    <option value="comment_count">Comment count</option>
+                    <option value="votes">Vote count</option>
+                </select>
+            </div>
         </div>
     <div className="reviewList">
         {reviews.map((review) => {

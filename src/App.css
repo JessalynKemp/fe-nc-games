@@ -254,6 +254,13 @@ textarea:focus, input:focus{
     outline: none;
 }
 
+.reviewSortOptions{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
 @media (min-width: 600px) {
 
     .reviewList {
@@ -300,6 +307,12 @@ textarea:focus, input:focus{
     .commentSection {
         margin: 0;
         width: 48%;
+    }
+
+    .reviewSortOptions{
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 1rem;
     }
 
 }
