@@ -47,11 +47,12 @@ return(
         <h2>{categoryName} Reviews</h2>
         <div className="reviewSortOptions">
             <div className="ascDescButtons">
-                <button onClick={handleAscDescChange} disabled={isAscDisabled}>Asc</button>
-                <button onClick={handleAscDescChange} disabled={!isAscDisabled}>Desc</button>
+                <button className="ascButton" onClick={handleAscDescChange} disabled={isAscDisabled}>ASC </button>
+                <p>|</p>
+                <button className="descButton" onClick={handleAscDescChange} disabled={!isAscDisabled}> DESC</button>
             </div>
             <div className="sortByOptions">
-                <label>Sort by: </label>
+                <label className="sortByLabel">Sort by: </label>
                 <select id="filters" onChange={handleSortByChange}>
                     <option defaultValue="created_at" value="created_at">Date written</option>
                     <option value="comment_count">Comment count</option>
