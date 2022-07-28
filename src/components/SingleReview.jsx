@@ -12,16 +12,23 @@ export default function SingleReview () {
     const [votes, setVotes] = useState(0);
     const [isCommentsOpen, setIsCommentsOpen] = useState(false);
     const [commentCount, setCommentCount] = useState(0);
+    const [reviewDoesNotExist, setReviewDoesNotExist] = useState("")
 
     const navigate = useNavigate();
     
     useEffect(() => {axios.get(`https://nc-games-jk.herokuapp.com/api/reviews/${review_id}`).then(({data})=>{
+        setReviewDoesNotExist("")
         setReviewData(data.review);
         setVotes(data.review.votes);
         setCommentCount(data.review.comment_count);
+    }).catch((err) => {
+        setReviewDoesNotExist(err.response.data.msg);
     })}, [review_id])
 
-    return(
+    if(reviewDoesNotExist) {
+        return <p>{reviewDoesNotExist}</p>
+    } else {    
+        return(
         <>
         <div className="singleReviewTitle">
         <button type="button" className="exitReviewButton" onClick={()=> {navigate(-1)}}>Back</button>
@@ -35,7 +42,7 @@ export default function SingleReview () {
             </div>
         </div>
         </>
+    )}
 
-    )
 
 }
