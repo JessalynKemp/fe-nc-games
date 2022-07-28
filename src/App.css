@@ -1,5 +1,6 @@
 :root {
     --french-lilac: #966b9dff;
+    --dark-plum: #3D1A39;
     --old-rose: #c98686ff;
     --mellow-apricot: #f2b880ff;
     --seashell: #fff4ecff;
@@ -15,21 +16,35 @@
 
 .header {
     display: flex;
+    margin: 0.3rem 0.3rem 0.5rem 0.3rem;
     justify-content: space-between;
+    color: var(--dark-plum);
 }
 
 h1 {
     font-size: 36px;
-    color: var(--french-lilac)
+    color: var(--dark-plum);
 }
 
 h2 {
-    color: var(--french-lilac) 
+    color: var(--dark-plum);
+    margin: 0.4rem 0.4rem 0.4rem 1rem;
 }
 
 #homeIcon {
     height: 28px;
     color: var(--old-rose);
+    margin-right: 0.7rem;
+    margin-top: 0.5rem;
+}
+
+#homeIcon:hover {
+    color: var(--mellow-apricot);
+}
+
+.loggedInNotif{
+    margin-left: 0.1rem;
+    font-size: 16px;
 }
 
 .userLoggedIn {
@@ -43,14 +58,92 @@ h2 {
 
 .categoryMenu {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     color: var(--seashell);
+}
+
+.categoryMenu, h3 {
+    padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+}
+
+.menuButton{
+    font-size: 26px;
+    color: var(--seashell);
+    background-color: transparent;
+    border: none;
+    margin-right: 1rem;
+}
+
+.menuButton:hover{
+    color: var(--mellow-apricot);
+    cursor: pointer;
 }
 
 .navLink {
     text-decoration: none;
-    font-size: 12px;
     color: var(--seashell);
+    height: 10px;
+}
+
+.navLinkText:hover {
+    background-color: var(--mellow-apricot);
+    color: var(--dark-plum);
+}
+
+.navLinkText{
+    font-size: 14px;
+    padding: 0.3rem 0.3rem 0.3rem 1rem;
+    border-top: 2px solid rgb(169, 112, 112)
+}
+
+.reviewSortOptions{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.ascDescButtons{
+    display: flex;
+    color: var(--dark-plum);
+    font-size: 16px;
+}
+
+.ascButton, .descButton  {
+    background-color: transparent;
+    border: none;
+    font-size: 12px;
+}
+
+.ascButton:hover, .descButton:hover  {
+    color: var(--mellow-apricot);
+    cursor: pointer;
+}
+
+.ascButton {
+    margin-right: 0.4rem;
+}
+
+.descButton {
+    margin-left: 0.4rem;
+}
+
+.sortByLabel{
+    color: var(--dark-plum);
+    font-size: 14px;
+    margin-right: 0.2rem;
+}
+
+#filters {
+    color: var(--dark-plum);
+    border-radius: 20px;
+    border: 1px solid var(--dark-plum);
+    text-align: center;
+    padding: 0.1rem;
+}
+
+#filters:hover {
+    cursor: pointer;
 }
 
 .reviewCard {
@@ -252,13 +345,6 @@ h2 {
 
 textarea:focus, input:focus{
     outline: none;
-}
-
-.reviewSortOptions{
-    display: flex;
-    justify-content: space-between;
-    margin-right: 1rem;
-    margin-left: 1rem;
 }
 
 @media (min-width: 600px) {

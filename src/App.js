@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import ReviewList from "./components/ReviewList";
 import SingleReview from "./components/SingleReview";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const [user, setUser] = useState({
@@ -29,6 +30,7 @@ function App() {
           <Route path="/" element={<ReviewList />} />
           <Route path="/:category" element={<ReviewList />} />
           <Route path="/:category/:review_id" element={<SingleReview />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>
