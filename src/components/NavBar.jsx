@@ -24,7 +24,7 @@ return (
     <div className="navBar">
         <CategoryMenu isOpen={isOpen} setIsOpen={setIsOpen} >
         {categories.map((category) => {
-            return <Link key={category.slug} className="navLink" to={`/${category.slug}`} onClick={()=>{setIsOpen((currentOpen) => !currentOpen)}}><p>{category.name}</p></Link>
+            return <Link key={category.slug} className="navLink" to={`/${category.slug}`} onClick={()=>{setIsOpen((currentOpen) => !currentOpen)}}><p className="navLinkText">{category.name}</p></Link>
         })}
         </CategoryMenu>
     </div>
