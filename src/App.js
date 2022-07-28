@@ -11,9 +11,10 @@ import SingleReview from "./components/SingleReview";
 
 function App() {
   const [user, setUser] = useState({
-    username: "guestaccount",
-    name: "Guest Account",
-    avatar_url: "https://cdn-icons-png.flaticon.com/512/1077/1077114.png?w=360",
+    username: "jessjelly",
+    name: "Jess Jelly",
+    avatar_url:
+      "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141",
   });
 
   return (

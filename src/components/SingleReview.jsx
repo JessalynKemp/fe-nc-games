@@ -11,12 +11,14 @@ export default function SingleReview () {
     const [reviewData, setReviewData] = useState({});
     const [votes, setVotes] = useState(0);
     const [isCommentsOpen, setIsCommentsOpen] = useState(false);
+    const [commentCount, setCommentCount] = useState(0);
 
     const navigate = useNavigate();
     
     useEffect(() => {axios.get(`https://nc-games-jk.herokuapp.com/api/reviews/${review_id}`).then(({data})=>{
         setReviewData(data.review);
         setVotes(data.review.votes);
+        setCommentCount(data.review.comment_count);
     })}, [review_id])
 
     return(
@@ -26,10 +28,10 @@ export default function SingleReview () {
         <h2>{reviewData.title}</h2>
         </div>
         <div className="singleReview">
-        <Summary votes={votes} setVotes={setVotes} setIsCommentsOpen={setIsCommentsOpen} reviewData={reviewData}/>
+        <Summary votes={votes} setVotes={setVotes} commentCount={commentCount} setIsCommentsOpen={setIsCommentsOpen} reviewData={reviewData}/>
             <div className="reviewBodyAndComments">
                 <p className="reviewBody">{reviewData.review_body}</p>
-                {isCommentsOpen ? <CommentSection reviewData={reviewData} /> : <></>}
+                {isCommentsOpen ? <CommentSection commentCount={commentCount} setCommentCount={setCommentCount} reviewData={reviewData} /> : <></>}
             </div>
         </div>
         </>

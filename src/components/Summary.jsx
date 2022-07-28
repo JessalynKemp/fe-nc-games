@@ -1,10 +1,10 @@
 import Stats from "./Stats"
 
-export default function Summary ({reviewData, votes, setVotes, setIsCommentsOpen}) {
+export default function Summary ({reviewData, votes, setVotes, setIsCommentsOpen, commentCount}) {
 
     return (
         <div className="singleReviewStatsAndImage">
-            <Stats votes={votes} setVotes={setVotes} reviewData={reviewData} setIsCommentsOpen={setIsCommentsOpen}/>
+            <Stats commentCount={commentCount} votes={votes} setVotes={setVotes} reviewData={reviewData} setIsCommentsOpen={setIsCommentsOpen}/>
             <img className="reviewImage" src={`${reviewData.review_img_url}`} alt={`${reviewData.title}`}></img>
         </div>
     )

@@ -13,7 +13,7 @@ return (
     <div className="header">
         <div className="headerText">
         <h1>NC Game Reviews</h1>
-        <p>You are logged in as {user.name}</p>
+        <p>You are logged in as <span className="userLoggedIn">{user.name}</span></p>
         </div>
         <Link to="/"><FontAwesomeIcon id="homeIcon" icon={faHouseChimney} /></Link>
     </div>
