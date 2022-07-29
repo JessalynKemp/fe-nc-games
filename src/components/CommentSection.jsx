@@ -76,7 +76,6 @@ export default function CommentSection ({reviewData, commentCount, setCommentCou
                     return <CommentCard setComments={setComments} setCommentCount={setCommentCount} key={comment.comment_id} comment={comment} />
                 })}
                 </div>
-    
             </div>
         )
     }

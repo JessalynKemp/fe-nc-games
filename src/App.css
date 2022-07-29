@@ -394,11 +394,13 @@ h2 {
 
 .commentCard {
     margin: 0.7rem;
+    height: 100px;
     display: flex;
     border: 4px solid rgb(231, 207, 188, 0.4);
     border-radius: 12px;
     text-decoration: none;
-    color: black;
+    color: var(--dark-plum);
+    overflow-y: scroll;
 }
 
 .commentVoteCount {
@@ -455,38 +457,63 @@ textarea:focus, input:focus{
 
 @media (min-width: 600px) {
 
+    .titleAndSortBy{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .ascDescButtons{
+        margin-right: 1rem;
+    }
+
     .reviewList {
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-around;
     }
 
     .reviewCard {
         width: 30%;
     }
 
+    .singleReview {
+        display: flex;
+        margin-bottom: 2rem;
+    }
+
+    .singleReviewTitle{
+        margin-top: 0.5rem;
+    }
+
     .singleReviewStatsAndImage{
         flex-direction: column;
         justify-content: flex-start;
         width: 30%;
+        height: 500px;
+        margin-right: 1rem;
+    }
+
+    .imageHolder{
+        margin: 1rem 1rem 1rem 1rem;
+        width: 100%;
     }
 
     .reviewImage{
-        height: 220px;
         width: 100%;
+        height: 340px;
         border: 2px solid var(--mellow-apricot); 
     }
 
     .statsBox {
         width: 100%;
-    }
-
-    .singleReview{
-        display: flex;
+       margin-bottom: 0rem;
     }
 
     .reviewBody {
         width: 48%;
         height: 100%;
+        height: 500px;
     }
 
     .reviewBodyAndComments {
@@ -499,6 +526,8 @@ textarea:focus, input:focus{
     .commentSection {
         margin: 0;
         width: 48%;
+        height: 500px;
+        overflow-y: scroll;
     }
 
     .reviewSortOptions{

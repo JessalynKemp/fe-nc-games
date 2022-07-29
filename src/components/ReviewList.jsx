@@ -48,6 +48,7 @@ if(categoryDoesNotExist) {
     
 return(
     <div className="reviewList">
+        <div className="titleAndSortBy">
         <h2>{categoryName} Reviews</h2>
         <div className="reviewSortOptions">
             <div className="ascDescButtons">
@@ -63,6 +64,7 @@ return(
                     <option value="votes">Vote count</option>
                 </select>
             </div>
+        </div>
         </div>
     <div className="reviewList">
         {isLoading ? <p className="loadingMessage">Loading...</p> : reviews.map((review) => {
