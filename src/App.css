@@ -507,7 +507,7 @@ textarea:focus, input:focus{
 
     .statsBox {
         width: 100%;
-       margin-bottom: 0rem;
+       margin-bottom: 1rem;
     }
 
     .reviewBody {
