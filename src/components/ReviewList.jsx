@@ -11,11 +11,14 @@ const [order, setOrder] = useState("desc")
 const [isAscDisabled, setIsAscDisabled] = useState(false);
 const [searchParams, setSearchParams] = useSearchParams();
 const [categoryDoesNotExist, setCategoryDoesNotExist] = useState("");
+const [isLoading, setIsLoading] = useState(false);
 
 const {category} = useParams();
 
 useEffect(() => {
+    setIsLoading(true);
     axios.get("https://nc-games-jk.herokuapp.com/api/reviews", {params: {category, order, sort_by: sortBy}}).then(({data}) => {
+        setIsLoading(false);
         setCategoryDoesNotExist("");
         setReviews(data.reviews);
     }).catch((err) => {
@@ -61,7 +64,7 @@ return(
             </div>
         </div>
     <div className="reviewList">
-        {reviews.map((review) => {
+        {isLoading ? <p className="loadingMessage">Loading...</p> : reviews.map((review) => {
             return <ReviewCard key={review.review_id} review={review}/>
         })}
     </div>
