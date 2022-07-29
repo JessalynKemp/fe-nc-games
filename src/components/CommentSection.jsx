@@ -49,11 +49,11 @@ export default function CommentSection ({reviewData, commentCount, setCommentCou
                 <p>{commentCount}</p> 
             </div>
             <div>
-                {error ? <p>{error}</p> : <></>}
+                {error ? <p className="errorMessage">{error}</p> : <></>}
                 <form className="addNewComment" onSubmit={handleSubmit}>
                     <fieldset className="newCommentContainer">
                         <input className="newCommentBox" placeholder="Type your comment here..." type="text" value={newComment.body} onChange={(e) => setNewComment((currComment) => { return{...currComment, body: e.target.value}})}></input>
-                        <button type="submit" disabled={isSubmitDisabled}>Post</button>
+                        <button className="singleReviewButton" type="submit" disabled={isSubmitDisabled}>Post</button>
                     </fieldset>
                 </form>
             </div>

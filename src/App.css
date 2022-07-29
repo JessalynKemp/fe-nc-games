@@ -250,15 +250,16 @@ h2 {
 }
 
 .imageHolder{
-    width: 50%;
-    margin: 0.6rem;
+    width: 55%;
+    margin: 1rem 1rem 1rem 0.25rem;
+    max-height: 175px;
 }
 
 .reviewImage{
     height:100%;
     width:100%;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 .exitReviewButton:hover {
@@ -269,40 +270,78 @@ h2 {
 .singleReviewStatsAndImage {
     display: flex;
     justify-content: space-between;
+    margin-top: -0.2rem;
 }
 
 .statsBox {
-    width: 50%;
+    width: 45%;
+    max-height: 175px;
+    overflow-y: scroll;
     height: 100%;
-    margin: 0.6rem 0rem 0.6rem 0.6rem;
+    margin: 1rem 0.25rem 1rem 1rem;
 }
 
 .reviewCardOwner {
     color: var(--old-rose);
     font-weight: 700;
-    font-size: 18px;
-    padding-left: 0.4rem;
+    font-size: 20px;
+    padding-left: 0.2rem;
 }
 
 .reviewDateTime {
     font-size: 11px;
-    padding-left: 0.4rem;
+    padding-left: 0.2rem;
+    color: var(--dark-plum);
 }
 
 .reviewVoteCount, .reviewCommentCount {
     display: flex;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
     background-color: rgb(231, 207, 188, 0.4);
     justify-content: space-between;
-    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    padding: 0.2rem 0rem 0.2rem 0.5rem;
     color: var(--old-rose);
     font-size: 14px;
+    align-items: center;
 }
 
 .votingButton{
-    padding: 0.1rem;
-    margin: 0.1rem;
+    padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+    width: 30px;
+    margin: 0.1rem 0.2rem 0.1rem 0rem;
+    background-color: var(--old-rose);
+    border: 0;
+    border-radius: 8px;
+}
+
+.singleReviewButton {
+    padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+    margin: 0.1rem 0.2rem 0.1rem 0rem;
+    background-color: var(--old-rose);
+    border: 0;
+    border-radius: 8px;   
+    color: var(--seashell);
+}
+
+.thumb{
+    font-size: 16px;
+    color: var(--seashell);
+}
+
+.votingButton:hover, .singleReviewButton:hover{
+    background-color: var(--mellow-apricot);
+    cursor: pointer;
+    color: var(--dark-plum);
+}
+
+.thumb:hover{
+    color: var(--dark-plum);
+}
+
+.largeNumber{
+    font-weight: 700;
+    font-size: 18px;
 }
 
 .votingError {
@@ -310,24 +349,30 @@ h2 {
 }
 
 .reviewCategoryDesigner {
-    background-color: var(--mellow-apricot);
-    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+
+    padding: 0.2rem 0.2rem 0.2rem 0.2rem;
     font-size: 14px;
-    color: var(--seashell);
+    color: var(--dark-plum);
+
 }
 
 .reviewBody {
-    margin: 0rem 0.6rem 0rem 0.6rem;
-    padding: 0.2rem;
+    margin: 0rem 1rem 0rem 1rem;
+    padding: 0.5rem;
     font-size: 14px;
-    border: 2px solid var(--mellow-apricot);
+    border: 2px solid var(--old-rose);
+    color: var(--dark-plum);
+    border-radius: 12px;
 }
 
 .commentSection {
-    margin: 0.6rem 0.6rem 0rem 0.6rem;
-    padding: 0.2rem;
+    margin: 0.5rem 1rem 0rem 1rem;
+    padding: 0.3rem;
     font-size: 14px;
-    border: 2px solid var(--mellow-apricot);
+    border: 2px solid var(--old-rose);
+    border-radius: 12px;
 }
 
 .commentTitleAndCount {
@@ -335,6 +380,16 @@ h2 {
     justify-content: space-between;
     margin-left: 1rem;
     margin-right: 1rem;
+    color: var(--dark-plum);
+    font-size: 16px;
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+.errorMessage{
+    text-align: center;
+    margin: 0.5rem;
+    color: var(--dark-plum);
 }
 
 .commentCard {
@@ -360,10 +415,6 @@ h2 {
     font-size: 20px;
 }
 
-.commentVoteButtons {
-    display: flex;
-}
-
 .commentCardText {
     display: flex;
     flex-direction: column;
@@ -373,15 +424,16 @@ h2 {
 
 .commentDeleteButton {
     align-self: flex-end;
+    margin: 0.3rem;
 }
 
 .addNewComment {
     margin: 0.7rem;
     display: flex;
-    border: 4px solid var(--mellow-apricot);
+    border: 2px solid var(--old-rose);
     border-radius: 12px;
     text-decoration: none;
-    color: black;
+    color: var(--dark-plum);
 }
 
 .newCommentContainer {

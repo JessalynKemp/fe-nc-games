@@ -2,6 +2,9 @@ import axios from "axios";
 import { useState } from "react";
 import { formatDateAndTime } from "../utilities/utilities";
 
+import { faThumbsUp, faThumbsDown, faPalette, faDice } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function Stats ({reviewData, votes, setVotes, setIsCommentsOpen, commentCount}) {
 
 const {formattedDate, formattedTime} = formatDateAndTime(reviewData.created_at);
@@ -20,22 +23,23 @@ function changeVote(num){
 return <div className="statsBox">
     <p className="reviewCardOwner">{reviewData.owner}</p>
     <p className="reviewDateTime">{formattedTime} {formattedDate}</p>
+    {error ? <p className="votingError">{error}</p> : <></>}
     <div className="reviewVoteCount">
-        <p>Votes: {votes}</p>
+        <p><span className="largeNumber">{votes}</span> votes</p>
         <div className="reviewVotingButtons">
-            <button className="votingButton" onClick={() => {changeVote(1)}}>Up</button>
-            <button className="votingButton" onClick={() => {changeVote(-1)}}>Down</button>
+            <button className="votingButton" onClick={() => {changeVote(1)}}><FontAwesomeIcon icon={faThumbsUp} className="thumb" /></button>
+            <button className="votingButton" onClick={() => {changeVote(-1)}}><FontAwesomeIcon icon={faThumbsDown} className="thumb" /></button>
         </div>
     </div>
-    {error ? <p className="votingError">{error}</p> : <></>}
-    <div className="reviewCategoryDesigner">
-        <p>C: {reviewData.category}</p>
-        <p>D: {reviewData.designer}</p>
-    </div>
     <div className="reviewCommentCount">
-        <p>Comments: {commentCount}</p>
-        <button onClick={()=>{setIsCommentsOpen((currentOpen) => !currentOpen)}}>View</button>
+        <p><span className="largeNumber">{commentCount}</span> comments</p>
+        <button className="singleReviewButton" onClick={()=>{setIsCommentsOpen((currentOpen) => !currentOpen)}}>View</button>
     </div>
+    <div className="reviewCategoryDesigner">
+        <p><FontAwesomeIcon className="paletteIcon" icon={faPalette} /> {reviewData.category}</p>
+        <p><FontAwesomeIcon className="diceIcon" icon={faDice} /> {reviewData.designer}</p>
+    </div>
+    
 </div>
 }
 
