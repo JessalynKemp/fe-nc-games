@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react"
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import ReviewCard from "./ReviewCard";
 
 export default function ReviewList () {
-    
-const axios = require("axios");
+
 const [reviews, setReviews] = useState([]);
 const [sortBy, setSortBy] = useState("created_at");
 const [order, setOrder] = useState("desc")
@@ -16,12 +15,14 @@ const [isLoading, setIsLoading] = useState(false);
 const {category} = useParams();
 
 useEffect(() => {
+    const axios = require("axios");
     setIsLoading(true);
     axios.get("https://nc-games-jk.herokuapp.com/api/reviews", {params: {category, order, sort_by: sortBy}}).then(({data}) => {
         setIsLoading(false);
         setCategoryDoesNotExist("");
         setReviews(data.reviews);
     }).catch((err) => {
+        setIsLoading(false);
         setCategoryDoesNotExist(err.response.data.msg);
     })
 }, [category, order, sortBy])
@@ -42,11 +43,12 @@ function handleSortByChange(e) {
     setSearchParams({order, sort_by: e.target.value});
 }
 if(categoryDoesNotExist) {
-    return <p>{categoryDoesNotExist}</p>
+    return <p className="errorMessage">{categoryDoesNotExist}</p>
 } else {
     
 return(
-    <div>
+    <div className="reviewList">
+        <div className="titleAndSortBy">
         <h2>{categoryName} Reviews</h2>
         <div className="reviewSortOptions">
             <div className="ascDescButtons">
@@ -62,6 +64,7 @@ return(
                     <option value="votes">Vote count</option>
                 </select>
             </div>
+        </div>
         </div>
     <div className="reviewList">
         {isLoading ? <p className="loadingMessage">Loading...</p> : reviews.map((review) => {

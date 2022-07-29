@@ -30,16 +30,12 @@ export default function CommentCard ({comment, setComments, setCommentCount}) {
            <div className="commentVoteCount">
                 <p className="commentVoteNumber">{comment.votes}</p>
                 <p>votes</p>
-                <div className="commentVoteButtons">
-                    <button>Up</button>
-                    <button>Down</button>
-                </div>
             </div>
             <div className="commentCardText">
                 <p>{comment.author} - <span className="reviewDateTime">{formattedTime} {formattedDate}</span> </p>
                 <p>{comment.body}</p>
             </div> 
-            {username === comment.author ? <button className="commentDeleteButton" onClick={handleCommentDelete}>Delete</button> : <></>}
+            {username === comment.author ? <button className="commentDeleteButton singleReviewButton" onClick={handleCommentDelete}>Delete</button> : <></>}
         </div>
     )
 }
