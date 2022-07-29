@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react"
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import ReviewCard from "./ReviewCard";
 
 export default function ReviewList () {
-    
-const axios = require("axios");
+
 const [reviews, setReviews] = useState([]);
 const [sortBy, setSortBy] = useState("created_at");
 const [order, setOrder] = useState("desc")
@@ -16,6 +15,7 @@ const [isLoading, setIsLoading] = useState(false);
 const {category} = useParams();
 
 useEffect(() => {
+    const axios = require("axios");
     setIsLoading(true);
     axios.get("https://nc-games-jk.herokuapp.com/api/reviews", {params: {category, order, sort_by: sortBy}}).then(({data}) => {
         setIsLoading(false);

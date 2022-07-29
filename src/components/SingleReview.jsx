@@ -29,7 +29,7 @@ export default function SingleReview () {
         }
     }).catch((err) => {
         setReviewDoesNotExist(err.response.data.msg);
-    })}, [review_id])
+    })}, [review_id, category])
 
     if(reviewDoesNotExist) {
         return <p>{reviewDoesNotExist}</p>
