@@ -22,6 +22,7 @@ useEffect(() => {
         setCategoryDoesNotExist("");
         setReviews(data.reviews);
     }).catch((err) => {
+        setIsLoading(false);
         setCategoryDoesNotExist(err.response.data.msg);
     })
 }, [category, order, sortBy])
@@ -42,7 +43,7 @@ function handleSortByChange(e) {
     setSearchParams({order, sort_by: e.target.value});
 }
 if(categoryDoesNotExist) {
-    return <p>{categoryDoesNotExist}</p>
+    return <p className="errorMessage">{categoryDoesNotExist}</p>
 } else {
     
 return(

@@ -11,8 +11,12 @@ export default function CommentSection ({reviewData, commentCount, setCommentCou
     const [newComment, setNewComment] = useState({username, body:""});
     const [error, setError] = useState("");
     const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {axios.get(`https://nc-games-jk.herokuapp.com/api/reviews/${reviewData.review_id}/comments`).then(({data}) => {
+    useEffect(() => {
+        setIsLoading(true);
+        axios.get(`https://nc-games-jk.herokuapp.com/api/reviews/${reviewData.review_id}/comments`).then(({data}) => {
+        setIsLoading(false);
         setComments(data.comments);
     })}, [reviewData.review_id]);
 
@@ -41,29 +45,42 @@ export default function CommentSection ({reviewData, commentCount, setCommentCou
         }
     }
 
+    if(isLoading){
+        return (
+            <div className="commentSection">
+                <div className="commentTitleAndCount">
+                    <h4>Comments</h4>
+                    <p>{commentCount}</p> 
+                </div>
+            <p className="loadingMessage">Loading...</p>    
+            </div>
+        )
+    } else {
+        return (
+            <div className="commentSection">
+                <div className="commentTitleAndCount">
+                    <h4>Comments</h4>
+                    <p>{commentCount}</p> 
+                </div>
+                <div>
+                    {error ? <p className="errorMessage">{error}</p> : <></>}
+                    <form className="addNewComment" onSubmit={handleSubmit}>
+                        <fieldset className="newCommentContainer">
+                            <input className="newCommentBox" placeholder="Type your comment here..." type="text" value={newComment.body} onChange={(e) => setNewComment((currComment) => { return{...currComment, body: e.target.value}})}></input>
+                            <button className="singleReviewButton" type="submit" disabled={isSubmitDisabled}>Post</button>
+                        </fieldset>
+                    </form>
+                </div>
+                <div className="commentList">
+                {comments.map((comment) => {
+                    return <CommentCard setComments={setComments} setCommentCount={setCommentCount} key={comment.comment_id} comment={comment} />
+                })}
+                </div>
+    
+            </div>
+        )
+    }
 
-    return (
-        <div className="commentSection">
-            <div className="commentTitleAndCount">
-                <h4>Comments</h4>
-                <p>{commentCount}</p> 
-            </div>
-            <div>
-                {error ? <p className="errorMessage">{error}</p> : <></>}
-                <form className="addNewComment" onSubmit={handleSubmit}>
-                    <fieldset className="newCommentContainer">
-                        <input className="newCommentBox" placeholder="Type your comment here..." type="text" value={newComment.body} onChange={(e) => setNewComment((currComment) => { return{...currComment, body: e.target.value}})}></input>
-                        <button className="singleReviewButton" type="submit" disabled={isSubmitDisabled}>Post</button>
-                    </fieldset>
-                </form>
-            </div>
-            <div className="commentList">
-            {comments.map((comment) => {
-                return <CommentCard setComments={setComments} setCommentCount={setCommentCount} key={comment.comment_id} comment={comment} />
-            })}
-            </div>
-
-        </div>
-    )
+    
 }
     

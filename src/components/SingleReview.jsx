@@ -16,27 +16,35 @@ export default function SingleReview () {
     const [commentCount, setCommentCount] = useState(0);
     const [reviewDoesNotExist, setReviewDoesNotExist] = useState("")
     const [categoryDoesNotExist, setCategoryDoesNotExist] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const navigate = useNavigate();
 
-    useEffect(() => {axios.get(`https://nc-games-jk.herokuapp.com/api/reviews/${review_id}`).then(({data})=>{
+    useEffect(() => {
+        setIsLoading(true);
+        axios.get(`https://nc-games-jk.herokuapp.com/api/reviews/${review_id}`).then(({data})=>{
         if(data.review.category === category) {
+            setIsLoading(false);
             setCategoryDoesNotExist("");
             setReviewDoesNotExist("");
             setReviewData(data.review);
             setVotes(data.review.votes);
             setCommentCount(data.review.comment_count);
         } else {
+            setIsLoading(false);
             setCategoryDoesNotExist(`This review does not exist under the category of ${category}.`)
         }
     }).catch((err) => {
+        setIsLoading(false);
         setReviewDoesNotExist(err.response.data.msg);
     })}, [review_id, category])
 
-    if(reviewDoesNotExist) {
-        return <p>{reviewDoesNotExist}</p>
+    if(isLoading) {
+        return <p className="loadingMessage" >Loading...</p>
+    } else if(reviewDoesNotExist) {
+        return <p className="errorMessage">{reviewDoesNotExist}</p>
     } else if(categoryDoesNotExist) {
-        return <p>{categoryDoesNotExist}</p>
+        return <p className="errorMessage">{categoryDoesNotExist}</p>
     } 
     else {    
         return(
