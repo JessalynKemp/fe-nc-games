@@ -42,6 +42,14 @@ Install the dependencies using the following command in your terminal:
 npm install
 ```
 
+## Technologies and Frameworks
+
+- React
+- React Router
+- Axios
+- FontAwesome
+- Vanilla CSS
+
 ## Version Requirements
 
 - node.js: ^16.0.0
