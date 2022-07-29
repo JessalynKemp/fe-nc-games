@@ -8,7 +8,7 @@ export default function CategoryMenu({children, ...props}) {
         <section>
             <div className="categoryMenu">
                 <h3>Categories</h3>
-                <button class="menuButton" onClick={()=>{props.setIsOpen((currentOpen) => !currentOpen)}}><FontAwesomeIcon icon={faAngleDown} /></button>
+                <button className="menuButton" onClick={()=>{props.setIsOpen((currentOpen) => !currentOpen)}}><FontAwesomeIcon icon={faAngleDown} /></button>
             </div>
             {props.isOpen && <ul>{children}</ul>}
         </section>
