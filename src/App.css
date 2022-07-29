@@ -231,13 +231,6 @@ h2 {
     text-align: center;
     margin-top: 1rem;
 }
-
-.reviewImage{
-    height: 150px;
-    width: 54%;
-    border: 2px solid var(--mellow-apricot); 
-}
-
 .exitReviewButton {
     font-size: 26px;
     color: var(--old-rose);
@@ -247,24 +240,41 @@ h2 {
     margin: 0.5rem 0rem 0.5rem 1rem;
 }
 
-.exitReviewButton:hover {
-    color: var(--mellow-apricot);
-    cursor: pointer;
-}
-
 .singleReviewTitle  {
     display: flex;
     margin-right: 1rem;
 }
 
+.singleReviewTitle, h2  {
+    margin-bottom: 0;
+}
+
+.imageHolder{
+    width: 50%;
+    margin: 0.6rem;
+}
+
+.reviewImage{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.exitReviewButton:hover {
+    color: var(--mellow-apricot);
+    cursor: pointer;
+}
+
 .singleReviewStatsAndImage {
     display: flex;
-    padding: 0.6rem;
     justify-content: space-between;
 }
 
 .statsBox {
-    width: 44%;
+    width: 50%;
+    height: 100%;
+    margin: 0.6rem 0rem 0.6rem 0.6rem;
 }
 
 .reviewCardOwner {

@@ -5,7 +5,9 @@ export default function Summary ({reviewData, votes, setVotes, setIsCommentsOpen
     return (
         <div className="singleReviewStatsAndImage">
             <Stats commentCount={commentCount} votes={votes} setVotes={setVotes} reviewData={reviewData} setIsCommentsOpen={setIsCommentsOpen}/>
-            <img className="reviewImage" src={`${reviewData.review_img_url}`} alt={`${reviewData.title}`}></img>
+            <div className="imageHolder">
+                <img className="reviewImage" src={`${reviewData.review_img_url}`} alt={reviewData.title}></img>
+            </div>
         </div>
     )
 }
