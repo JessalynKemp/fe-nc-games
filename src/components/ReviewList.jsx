@@ -46,7 +46,7 @@ if(categoryDoesNotExist) {
 } else {
     
 return(
-    <div>
+    <div className="reviewList">
         <h2>{categoryName} Reviews</h2>
         <div className="reviewSortOptions">
             <div className="ascDescButtons">

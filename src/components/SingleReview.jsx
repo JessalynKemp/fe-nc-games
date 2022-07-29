@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Summary from "./Summary";
 import CommentSection from "./CommentSection";
@@ -40,7 +42,7 @@ export default function SingleReview () {
         return(
         <>
         <div className="singleReviewTitle">
-        <button type="button" className="exitReviewButton" onClick={()=> {navigate(-1)}}>Back</button>
+        <button type="button" className="exitReviewButton" onClick={()=> {navigate(-1)}}><FontAwesomeIcon icon={faArrowLeft} /></button>
         <h2>{reviewData.title}</h2>
         </div>
         <div className="singleReview">

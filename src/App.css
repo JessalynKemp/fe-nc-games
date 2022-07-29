@@ -63,6 +63,7 @@ h2 {
 }
 
 .categoryMenu, h3 {
+
     padding: 0.3rem 0.3rem 0.3rem 0.3rem;
 }
 
@@ -152,6 +153,12 @@ h2 {
     cursor: pointer;
 }
 
+.reviewList{
+    position: relative;
+	overflow: auto;
+	z-index: 1;
+}
+
 .reviewCard {
     height: 120px; 
     margin: 0.7rem;
@@ -232,12 +239,22 @@ h2 {
 }
 
 .exitReviewButton {
-    margin-right: 1rem;
+    font-size: 26px;
+    color: var(--old-rose);
+    align-self: flex-start;
+    background-color: transparent;
+    border: none;
+    margin: 0.5rem 0rem 0.5rem 1rem;
+}
+
+.exitReviewButton:hover {
+    color: var(--mellow-apricot);
+    cursor: pointer;
 }
 
 .singleReviewTitle  {
     display: flex;
-    padding: 0.5rem;
+    margin-right: 1rem;
 }
 
 .singleReviewStatsAndImage {
