@@ -16,7 +16,7 @@ export default function CommentCard ({comment, setComments, setCommentCount}) {
             return newComments;
         })
         setCommentCount((currCount) => currCount - 1)
-        axios.delete(`https://nc-games-jk.herokuapp.com/api/comments/${comment.comment_id}`).then(() => {
+        axios.delete(`https://jk-nc-games.onrender.com/api/comments/${comment.comment_id}`).then(() => {
         }).catch((err) => {
             setComments((currComments) => {
                 return [...currComments, comment];

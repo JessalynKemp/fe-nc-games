@@ -11,7 +11,7 @@ const {formattedDate, formattedTime} = formatDateAndTime(reviewData.created_at);
 const [error, setError] = useState("")
 
 function changeVote(num){
-    axios.patch(`https://nc-games-jk.herokuapp.com/api/reviews/${reviewData.review_id}`, {inc_votes: num}).then(({data}) => {
+    axios.patch(`https://jk-nc-games.onrender.com/api/reviews/${reviewData.review_id}`, {inc_votes: num}).then(({data}) => {
         setError("");
         setVotes(data.review.votes);
     }).catch((err) => {
