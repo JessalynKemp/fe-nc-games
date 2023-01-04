@@ -17,7 +17,7 @@ const {category} = useParams();
 useEffect(() => {
     const axios = require("axios");
     setIsLoading(true);
-    axios.get("https://nc-games-jk.herokuapp.com/api/reviews", {params: {category, order, sort_by: sortBy}}).then(({data}) => {
+    axios.get("https://jk-nc-games.onrender.com/api/reviews", {params: {category, order, sort_by: sortBy}}).then(({data}) => {
         setIsLoading(false);
         setCategoryDoesNotExist("");
         setReviews(data.reviews);

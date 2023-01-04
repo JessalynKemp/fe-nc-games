@@ -22,7 +22,7 @@ export default function SingleReview () {
 
     useEffect(() => {
         setIsLoading(true);
-        axios.get(`https://nc-games-jk.herokuapp.com/api/reviews/${review_id}`).then(({data})=>{
+        axios.get(`https://jk-nc-games.onrender.com/api/reviews/${review_id}`).then(({data})=>{
         if(data.review.category === category) {
             setIsLoading(false);
             setCategoryDoesNotExist("");

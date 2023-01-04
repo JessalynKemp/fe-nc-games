@@ -14,7 +14,7 @@ const [categories, setCategories] = useState([]);
 const [isOpen, setIsOpen] = useState(false);
 
 useEffect(() => {
-    axios.get("https://nc-games-jk.herokuapp.com/api/categories").then(({data}) => {
+    axios.get("https://jk-nc-games.onrender.com/api/categories").then(({data}) => {
         addCategoryName(data.categories);
         setCategories(data.categories);
     })

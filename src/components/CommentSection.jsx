@@ -15,7 +15,7 @@ export default function CommentSection ({reviewData, commentCount, setCommentCou
 
     useEffect(() => {
         setIsLoading(true);
-        axios.get(`https://nc-games-jk.herokuapp.com/api/reviews/${reviewData.review_id}/comments`).then(({data}) => {
+        axios.get(`https://jk-nc-games.onrender.com/api/reviews/${reviewData.review_id}/comments`).then(({data}) => {
         setIsLoading(false);
         setComments(data.comments);
     })}, [reviewData.review_id]);
@@ -28,7 +28,7 @@ export default function CommentSection ({reviewData, commentCount, setCommentCou
             setError("Please ensure your comment is not blank.")
             setTimeout(() => {setIsSubmitDisabled(false)}, 1000);
         } else {       
-            axios.post(`https://nc-games-jk.herokuapp.com/api/reviews/${reviewData.review_id}/comments`, newComment).then(({data}) => {
+            axios.post(`https://jk-nc-games.onrender.com/api/reviews/${reviewData.review_id}/comments`, newComment).then(({data}) => {
                 setNewComment((currComment) => { return{...currComment, body: ""}})
                 setCommentCount(commentCount + 1);
                 setComments((currComments) => {return [data.comment, ...currComments]});
